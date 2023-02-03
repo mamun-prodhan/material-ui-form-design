@@ -1,8 +1,14 @@
 import './App.css';
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import {useForm} from "react-hook-form";
 
 function App() {
+
+  const {register, handleSubmit, } = useForm();
+  const onSubmit = data => console.log(data);
+
+
   return (
     <div className="App">
       <Typography gutterBottom variant='h3' align='center'>
@@ -11,7 +17,7 @@ function App() {
 
       <Card style={{ maxwidth: "750px", margin: "0 auto", padding: "20px 5px" }}>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={4} item>
                 <TextField
@@ -19,7 +25,7 @@ function App() {
                   label="First Name"
                   variant='outlined'
                   fullWidth
-                  required />
+                />
               </Grid>
               <Grid xs={12} sm={4} item>
                 <TextField label="Middle Name" placeholder='Enter Middle Name' variant='outlined' fullWidth required />
