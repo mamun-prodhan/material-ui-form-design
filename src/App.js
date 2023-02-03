@@ -1,11 +1,11 @@
 import './App.css';
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import {useForm} from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 function App() {
 
-  const {register, handleSubmit, } = useForm();
+  const { register, handleSubmit, control } = useForm();
   const onSubmit = data => console.log(data);
 
 
@@ -25,22 +25,64 @@ function App() {
                   label="First Name"
                   variant='outlined'
                   fullWidth
+                  name='firstName'
+                  inputRef={register}
+                  required
                 />
               </Grid>
               <Grid xs={12} sm={4} item>
-                <TextField label="Middle Name" placeholder='Enter Middle Name' variant='outlined' fullWidth required />
+                <TextField
+                  label="Middle Name"
+                  placeholder='Enter Middle Name'
+                  variant='outlined'
+                  fullWidth
+                  name='middleName'
+                  inputRef={register}
+                  required />
               </Grid>
               <Grid xs={12} sm={4} item>
-                <TextField label="Last Name" placeholder='Enter Last Name' variant='outlined' fullWidth required />
+                <TextField
+                  label="Last Name"
+                  placeholder='Enter Last Name'
+                  variant='outlined'
+                  fullWidth
+                  name='lastName'
+                  inputRef={register}
+                  required />
               </Grid>
               <Grid xs={12} item>
-                <TextField type="email" label="Email" placeholder='Enter email address' variant='outlined' fullWidth required />
+                <TextField
+                  type="email"
+                  label="Email"
+                  placeholder='Enter email address'
+                  variant='outlined'
+                  fullWidth
+                  name='email'
+                  inputRef={register}
+                  required />
               </Grid>
               <Grid xs={12} item>
-                <TextField type="number" label="Phone" placeholder='Enter phone number' variant='outlined' fullWidth required />
+                <TextField
+                  type="number"
+                  label="Phone"
+                  placeholder='Enter phone number'
+                  variant='outlined'
+                  fullWidth
+                  name='phone'
+                  inputRef={register}
+                  required />
               </Grid>
               <Grid xs={12} item>
-                <TextField label="Message" multiline rows={4} placeholder="Type your message here" variant='outlined' fullWidth required />
+                <TextField
+                  label="Message"
+                  multiline
+                  rows={4}
+                  placeholder="Type your message here"
+                  variant='outlined'
+                  fullWidth
+                  name='message'
+                  inputRef={register}
+                  required />
               </Grid>
               <Grid xs={12} item>
                 <Button type='submit' variant="contained" color="primary" fullWidth>Submit</Button>
